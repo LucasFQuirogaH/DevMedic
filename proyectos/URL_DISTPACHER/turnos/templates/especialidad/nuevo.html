@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+
+
+{% block contenido %}
+<main>
+
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active"><h2>Nueva especialidad</h2></li>
+</ol>
+
+
+<div class="form">
+    <div class="card-header"><h3>Creacion especialidad</h3></div>
+    <div class="card-body">
+        <form class='form' action="{% url 'especialidad_nuevo' %}" method="post" novalidate>
+            {% csrf_token %}
+            {% include 'especialidad/form.html' %}
+        </form>
+    </div>
+</div>
+</main>
+{% endblock %}

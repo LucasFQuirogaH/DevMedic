@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+<div class="card">
+   <div class="card-header">Nuevo turno</div>
+   <div class="card-body">
+        <form method="POST" enctype="multipart/form-data">
+            
+            <!-- Security token -->
+            {% csrf_token %}
+        
+            <!-- Using the formset -->
+            {{ form.as_p }}
+            
+            <input type="submit"  value="Guardar" class="btn btn-success">
+            <a href="{% url 'turnos_index_view' %}" class="btn btn-secondary">Cancelar</a>  
+        </form>
+</div>
+</div>
+{% endblock %}

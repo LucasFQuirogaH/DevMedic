@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block contenido %}
+
+<!--Contact form-->
+<main>
+<div>
+  <h2>Contacto</h2>
+  
+  <form class='form' id="contact-form" name="contact-form" action="{% url 'contacto' %}" method="POST">
+    <p>Póngase en contacto con nosotros directamente si tiene alguna pregunta.
+    Escriba su nombre, dirección de correo electrónico y un mensaje a continuación si tiene alguna pregunta. Uno de los
+    miembros de nuestro personal estará encantado de contactarlo directamente y responder sus preguntas lo antes
+    posible.
+    </p>
+    {% comment %} {% csrf_token %}
+    {{ contacto_formulario.as_p }}
+    <div class="text-center text-md-left mt-3">
+      <button class="button" type="submit">Enviar</button>
+    </div>
+  </form>
+  {{ mensaje }} {% endcomment %}
+
+  {% block content %}
+  <h1>Contacto</h1>
+  <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <input type="submit"  value="Guardar" class="btn btn-success"> 
+  </form>
+  {% endblock %}
+</div>
+</main>
+{% endblock %}
